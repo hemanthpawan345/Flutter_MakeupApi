@@ -78,16 +78,25 @@ class ProductView extends StatelessWidget {
               const SizedBox(
                 height: 15,
               ),
-              EllipsisText(
-                maxLines: 2,
-                ellipsis: '...',
-                text: product.description!,
-                style: Theme.of(context).textTheme.bodySmall!.copyWith(
-                      fontSize: 15,
-                      color: Theme.of(context).colorScheme.onPrimaryContainer,
-                    ),
-                textDirection: TextDirection.ltr,
-              ),
+              if (product.description != null)
+                EllipsisText(
+                  maxLines: 2,
+                  ellipsis: '...',
+                  text: product.description!,
+                  style: Theme.of(context).textTheme.bodySmall!.copyWith(
+                        fontSize: 15,
+                        color: Theme.of(context).colorScheme.onPrimaryContainer,
+                      ),
+                  textDirection: TextDirection.ltr,
+                )
+              else
+                Text(
+                  'Nothing to show',
+                  style: Theme.of(context).textTheme.bodySmall!.copyWith(
+                        fontSize: 15,
+                        color: Theme.of(context).colorScheme.onPrimaryContainer,
+                      ),
+                ),
               const SizedBox(
                 height: 15,
               ),

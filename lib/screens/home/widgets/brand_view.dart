@@ -21,6 +21,12 @@ class _BrandViewState extends State<BrandView> {
         children: [
           DropdownButtonHideUnderline(
             child: DropdownButton2<String>(
+              // barrierColor: Theme.of(context).colorScheme.onBackground,
+              iconStyleData: const IconStyleData(
+                icon: Icon(
+                  Icons.arrow_drop_down_circle_outlined,
+                ),
+              ),
               isExpanded: true,
               hint: Text(
                 'Select Brand',
@@ -134,7 +140,7 @@ class _BrandViewState extends State<BrandView> {
           ),
           Center(
             child: Text(
-              'Good makeup, good mood',
+              'Good makeup, Good mood',
               style: Theme.of(context).textTheme.headlineLarge!.copyWith(
                     color: Theme.of(context).colorScheme.primary,
                   ),

@@ -1,5 +1,5 @@
-import 'package:api_call/screens/product/Widgets/product_view.dart';
-import 'package:api_call/screens/product/controller/product_controller.dart';
+import 'package:api_call/app/modules/product/Widgets/product_view.dart';
+import 'package:api_call/app/modules/product/controller/product_controller.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -17,14 +17,13 @@ class Products extends StatelessWidget {
       appBar: AppBar(
         title: Text(
           brand,
-          style: Theme.of(context).textTheme.titleLarge!.copyWith(
+          style: Theme.of(context).textTheme.headlineLarge!.copyWith(
                 color: Theme.of(context).colorScheme.primary,
-                fontSize: 28,
               ),
         ),
       ),
-      body: Obx(
-        () => ctrl.isLoading.value
+      body: GetBuilder<ProductController>(
+        builder: (ctrl) => ctrl.isLoading
             ? const Center(child: CircularProgressIndicator())
             : ListView.builder(
                 itemCount: ctrl.products.length,
